@@ -1,10 +1,12 @@
-CREATE VIEW vw_pedidos AS 
+use supermercado;
+
+CREATE VIEW supermercado.vw_pedidos_mensais AS 
     SELECT 
     	cons.id 'id_consumidor',
     	cons.nome 'consumidor', 
         perf.titulo 'perfil',
-        ped.data_pedido 'data_de_pedido',
-        ped.data_envio 'data_de_envio',
+        STR_TO_DATE(CONCAT(DATE_FORMAT(ped.data_pedido, '%Y-%m'), '-01'), '%Y-%m-%d') 'data_pedido',
+        STR_TO_DATE(CONCAT(DATE_FORMAT(ped.data_envio, '%Y-%m'), '-01'), '%Y-%m-%d') 'data_envio',
     	ende.codigo_postal 'codigo_postal',
         ende.cidade 'cidade',
         ende.estado 'estado',
@@ -36,5 +38,4 @@ CREATE VIEW vw_pedidos AS
     JOIN
     	categoria cat ON cat.id = sub.id_categoria
     ORDER BY ped.data_pedido;
-    
-SELECT * FROM vw_pedidos;
+  

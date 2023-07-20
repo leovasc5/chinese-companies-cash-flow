@@ -10,7 +10,7 @@ DROP SCHEMA IF EXISTS `supermercado` ;
 --
 -- Banco de dados de um supermercado.
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `supermercado` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
+CREATE SCHEMA IF NOT EXISTS `supermercado`;
 USE `supermercado` ;
 
 -- -----------------------------------------------------
